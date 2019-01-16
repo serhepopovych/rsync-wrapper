@@ -1,0 +1,24 @@
+rsync-wrapper.sh - shell wrapper to run rsync(1) via remote-shell
+                   program with per user rsyncd.conf(5)
+=================================================================
+
+This wrapper intended to start rsync(1) daemon on remote machine using
+ssh(1) as remote-shell transport with per user rsyncd.conf(5).
+
+It can be started either directly from rsync(1) client on local machine
+or via forced command given in authorized_keys(8) on remote machine.
+
+To start directly you need to tell rsync(1) to use remote-shell program
+for transfers and supply --rsync-path pointing to absolute path to
+wrapper on remote machine:
+
+  $ rsync -av -e ssh --rsync-path='$HOME/bin/rsync-wrapper.sh' ...
+
+To start with forced command you need to have either "ForcedCommand"
+in sshd_config(8) or per ssh key "command"
+(e.g. command="$HOME/bin/rsync-wrapper.sh") option given in user/system
+authorized_keys(8) file and run following command on local machine:
+
+  $ rsync -av -e ssh ...
+
+See rsync(8), rsyncd.conf(5), sshd(8), sshd_config(5) for details.
