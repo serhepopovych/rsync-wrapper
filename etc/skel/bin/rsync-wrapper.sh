@@ -1,5 +1,7 @@
 #!/bin/sh -e
 
+# Requires: rsync(1), mv(1), mkdir(1), id(1), mktemp(1), cat(1), pwd(1)
+
 # This wrapper intended to start rsync(1) daemon on remote machine using
 # ssh(1) as remote-shell transport with per user rsyncd.conf(5).
 #
