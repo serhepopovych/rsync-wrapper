@@ -80,8 +80,8 @@ if [ ! -f "$rsync_conf" -o ! -s "$rsync_conf" ]; then
 # GLOBAL OPTIONS
 #
 
-uid		= $rsync_uid
-gid		= $rsync_gid
+#uid		= $rsync_uid
+#gid		= $rsync_gid
 use chroot	= no
 read only	= yes
 list		= no
